@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дизайн и разработка</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #e7ded3;
+      font-family: "Open Sans", Arial, sans-serif;
+      color: #3e2723;
+    }
+
+    /* ---------- Переключатель версий ---------- */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px;
+      background: #3e2723;
+    }
+
+    .toolbar button {
+      padding: 8px 18px;
+      border: 2px solid #8d6e63;
+      border-radius: 6px;
+      background: none;
+      color: #efebe9;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .toolbar button.active {
+      border-color: #fff;
+      background: #fff;
+      color: #3e2723;
+    }
+
+    /* ---------- Сайт ---------- */
+    .site {
+      container-type: inline-size;
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 58px);
+      width: 100%;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #6d4c41, #a1887f);
+      transition: width 0.3s;
+    }
+
+    .main {
+      flex: 1;
+      max-width: 1170px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 15px 60px;
+    }
+
+    .main h1 {
+      margin: 0 0 50px;
+      font-family: "Oswald", Arial, sans-serif;
+      font-size: 60px;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Карточки */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      padding: 40px 30px;
+      background: #fff;
+      border-radius: 16px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .number {
+      font-family: "Oswald", Arial, sans-serif;
+      font-size: 60px;
+      line-height: 1;
+      color: #795548;
+    }
+
+    .card p {
+      margin: 25px 0 35px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .card a {
+      padding-bottom: 3px;
+      border-bottom: 2px solid #a1887f;
+      color: #3e2723;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      color: #795548;
+    }
+
+    /* Подвал */
+    .footer {
+      padding: 30px 15px;
+      background: #3e2723;
+      color: #d7ccc8;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* ---------- Адаптив ---------- */
+    @container (max-width: 991px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .main h1 { font-size: 48px; }
+    }
+
+    @container (max-width: 600px) {
+      .main { padding: 30px 16px 40px; }
+      .main h1 { font-size: 36px; margin-bottom: 30px; }
+      .grid { grid-template-columns: 1fr; }
+      .card { padding: 30px 20px; }
+      .number { font-size: 50px; }
+    }
+
+    /* На настоящем телефоне переключатель не нужен */
+    @media (max-width: 600px) {
+      .toolbar { display: none; }
+      .site { width: 100% !important; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="active" data-width="100%">Компьютер</button>
+    <button data-width="375px">Телефон</button>
+  </div>
+
+  <div class="site" id="site">
+
+    <main class="main">
+      <h1>Дизайн и разработка</h1>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="number">01</div>
+          <p>Знакомимся с вашим бизнесом, изучаем рынок и конкурентов, вместе формулируем цели проекта.</p>
+          <a href="#">Подробнее</a>
+        </div>
+
+        <div class="card">
+          <div class="number">02</div>
+          <p>Составляем техническое задание и план работ, согласовываем сроки и стоимость.</p>
+          <a href="#">Подробнее</a>
+        </div>
+
+        <div class="card">
+          <div class="number">03</div>
+          <p>Создаём прототип и дизайн-макет. Показываем вам и вносим правки до полного согласования.</p>
+          <a href="#">Подробнее</a>
+        </div>
+
+        <div class="card">
+          <div class="number">04</div>
+          <p>Программисты верстают и разрабатывают сайт, адаптируя его под компьютеры и телефоны.</p>
+          <a href="#">Подробнее</a>
+        </div>
+
+        <div class="card">
+          <div class="number">05</div>
+          <p>Тестируем каждую страницу и функцию, исправляем ошибки и проверяем скорость загрузки.</p>
+          <a href="#">Подробнее</a>
+        </div>
+
+        <div class="card">
+          <div class="number">06</div>
+          <p>Запускаем проект, обучаем вашу команду и продолжаем поддерживать сайт после старта.</p>
+          <a href="#">Подробнее</a>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      © 2026 Студия дизайна. Все права защищены.
+    </footer>
+
+  </div>
+
+  <script>
+    const site = document.getElementById('site');
+    const buttons = document.querySelectorAll('.toolbar button');
+
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        buttons.forEach(function (b) { b.classList.remove('active'); });
+        button.classList.add('active');
+        site.style.width = button.dataset.width;
+      });
+    });
+  </script>
+
+</body>
+</html>
